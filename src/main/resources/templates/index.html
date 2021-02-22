@@ -6,11 +6,15 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+           crossorigin="anonymous"
+    th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+             crossorigin="anonymous"
+            th:href="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 20px">
@@ -28,11 +32,17 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Description</th>
+                                <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tr th:each="recipe : ${recipes}">
                                 <td th:text="${recipe.id}">123</td>
-                                 <td th:text="${recipe.description}">Tasty</td>
+                                <td th:text="${recipe.description}">Tasty</td>
+                                <td> <a href="#" th:href="@{'/recipe/'+${recipe.id}+'/show'}">View</a> </td>
+                                <td> <a href="#" th:href="@{'/recipe/'+${recipe.id}+'/update'}">Update</a></td>
+                                <td> <a href="#" th:href="@{'/recipe/'+${recipe.id}+'/delete'}">Delete</a></td>
                             </tr>
                         </table>
                     </div>
